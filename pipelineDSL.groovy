@@ -1,5 +1,4 @@
-   
-pipelineJob('Pipeline-DSL') {
+pipelineJob('Pipeline-DSL', Closure closure = null) {
     scm {
         git('git://github.com/quidryan/aws-sdk-test.git')
     }
