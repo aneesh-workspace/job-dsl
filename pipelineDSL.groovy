@@ -1,4 +1,4 @@
-job('Pipeline-DSL',{
+pipelineJob('Pipeline-DSL',{
     scm {
         git('git://github.com/quidryan/aws-sdk-test.git')
     }
