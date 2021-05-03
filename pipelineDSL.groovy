@@ -1,3 +1,5 @@
+static void aemPipelineJob(String jobName, Closure closure) {
+    
 pipelineJob('Pipeline-DSL',{
     scm {
         git('git://github.com/quidryan/aws-sdk-test.git')
@@ -9,3 +11,4 @@ pipelineJob('Pipeline-DSL',{
         maven('-e clean test')
     }
 }).with closure
+}
