@@ -1,4 +1,4 @@
-pipelineJob('Pipeline-DSL') {
+pipelineJob('Pipeline-DSL', {
     scm {
         git('git://github.com/quidryan/aws-sdk-test.git')
     }
@@ -8,4 +8,4 @@ pipelineJob('Pipeline-DSL') {
     steps {
         maven('-e clean test')
     }
-}
+}).with closure
