@@ -5,25 +5,13 @@ job('freestyle-seed-job1') {
 }
 
 pipelineJob('pipeline-seed-job2') {
-     definition {
-        cpsScm {
-            scm {
-                git {
-                    remote {
-                        github('jenkinsci/pipeline-examples')
-                    }
-                }
-            }
-            scriptPath('declarative-examples/simple-examples/environmentInStage.groovy')
-        }
+     parameters {
+        stringParam('Parameter1', Parameter1, 'Enter a Parameter')
     }
-          properties {
-        disableResume()
-        disableConcurrentBuilds()
-      }
-          triggers {
-        cron(cronTrigger)
-        scm("H/15 * * * *")
-        githubPush()
-      }
-        }
+  definition {
+    cps {
+      script(readFileFromWorkspace('jenkinsfile'))
+      sandbox()     
+    }
+  }
+ }
