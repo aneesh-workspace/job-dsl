@@ -1,6 +1,6 @@
 job('freestyle-seed-job1') {
     steps {
-        shell('echo Hello World!')
+        date
     }
 }
 
