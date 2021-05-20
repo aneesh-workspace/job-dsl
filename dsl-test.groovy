@@ -1,11 +1,20 @@
-job('DSL-Tutorial-1-Test') {
-    scm {
-        git('git://github.com/quidryan/aws-sdk-test.git')
-    }
-    triggers {
-        scm('H/15 * * * *')
-    }
+job('freestyle-seed-job1') {
     steps {
-        maven('-e clean test')
+        shell('echo Hello World!')
+    }
+}
+
+pipelineJob('pipeline-seed-job2') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('jenkinsci/pipeline-examples')
+                    }
+                }
+            }
+            scriptPath('declarative-examples/simple-examples/environmentInStage.groovy')
+        }
     }
 }
