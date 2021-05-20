@@ -11,7 +11,7 @@ pipelineJob('pipeline-seed-job2') {
   definition {
     cps {
       script(readFileFromWorkspace('jenkinsfile'))
-      sandbox()     
+    
     }
   }
  }
