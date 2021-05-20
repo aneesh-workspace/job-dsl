@@ -5,11 +5,18 @@ job('freestyle-seed-job1') {
 }
 
 pipelineJob('pipeline-seed-job2') {
-    definition {
-        cps {
-          script(jenkinsfile)
-          sandbox()
-        } }
+     definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('jenkinsci/pipeline-examples')
+                    }
+                }
+            }
+            scriptPath('declarative-examples/simple-examples/environmentInStage.groovy')
+        }
+    }
           properties {
         disableResume()
         disableConcurrentBuilds()
